@@ -2,6 +2,7 @@ var bottom = [0, 0, 0, 0, 0, 0, 0];
 
 function addCircle(num, player) {
 	if (bottom[num] < 300) {
+		console.log(player);
 		var color;
 		if (player == 0) 
 			color = "red";
@@ -14,7 +15,7 @@ function addCircle(num, player) {
 			"px; position:absolute;'></div>";
 				var divInner = "<div class = 'circle' style = 'background-color:" + color + "'></div>";
 				return $(divOuter).append(divInner)
-					.animate({bottom : bottom[num]}, "slow");
+					.animate({bottom : bottom[num]}, "slow")
 			}
 		);
 		bottom[num] += 52;

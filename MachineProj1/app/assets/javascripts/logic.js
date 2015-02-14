@@ -31,11 +31,11 @@ function startingPlayer() {
 			
 function switchPlayer(currPlayer) {
 	if (currPlayer == 0)
-		return 1;
+		app.player = 1;
 	else
-		return 0;
+		app.player = 0;
 }
-			
+ 			
 function checkIfWin(player) {
 	var countR = 1, countL = 1;
 	var countU = 1, countD = 1;
@@ -110,13 +110,15 @@ function checkIfWin(player) {
 		if (countR >= 4 || countL >= 4 || countU >= 4 || countD >= 4 || 
 			countQ1 >= 4 || countQ2 >= 4 || countQ3 >= 4 || countQ4 >= 4) {
 			console.log("Player Win");
-			alert("Player " + (app.player + 1) + " win!");
-			score[app.player]++;
-			$("#p" + (app.player + 1) + "area input").val(score[app.player]);
-			resetBoard();
+			setTimeout( function() {
+				alert("Player " + (app.player + 1) + " win!");
+				score[app.player]++;
+				$("#p" + (app.player + 1) + "area input").val(score[app.player]);
+				resetBoard();
+			}, 550);
 		}
 	}
-}
+} 
 
 var app = new everything(initTopVal(), createfield(), startingPlayer(), 0, 0);  
 var score = [0, 0];
