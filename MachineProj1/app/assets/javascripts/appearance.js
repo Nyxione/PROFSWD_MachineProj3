@@ -1,16 +1,24 @@
 var bottom = [0, 0, 0, 0, 0, 0, 0];
 
 function addCircle(num, player) {
-	var color;
-	if (player == 0) 
-		color = "red";
-	else
-		color = "black";
-	
-	$("#col"+num).prepend("<div style = 'bottom:" + bottom[num] + 
-		"px; position:absolute;'><div class = 'circle' style = 'background-color:" +
-		color + "'></div></div>");
-	bottom[num] += 52;
+	if (bottom[num] < 300) {
+		var color;
+		if (player == 0) 
+			color = "red";
+		else
+			color = "black";
+		
+		$("#col"+num).prepend(
+			function () {
+				var divOuter = "<div style = 'bottom:" + 300 + 
+			"px; position:absolute;'></div>";
+				var divInner = "<div class = 'circle' style = 'background-color:" + color + "'></div>";
+				return $(divOuter).append(divInner)
+					.animate({bottom : bottom[num]}, "slow");
+			}
+		);
+		bottom[num] += 52;
+	}
 }
 
 function resetBoard() {
