@@ -1,0 +1,40 @@
+body {
+	width : 50%;
+	margin : 0 auto;
+	padding : 0px;
+}
+
+#playerarea div {
+	display : inline-block;
+	margin : 5px 20px 20px 2px;
+}
+
+#playerarea input {
+	width : 80px;
+}
+
+button {
+	height : 30px;
+	width : 115px;
+	margin : 0px 0px 5px 0px;
+}
+
+#gamearea {
+	padding : 0px;
+}
+
+#col0, #col1, #col2, #col3, #col4, #col5, #col6 {
+	position : relative;
+	cursor : pointer;
+	height : 320px;
+	width : 57px;
+	border : solid 1px;
+	display : inline-block;
+}
+
+.circle {
+	width : 50px;
+	height : 50px;
+	border-radius : 25px;
+	margin : 5px;
+}
