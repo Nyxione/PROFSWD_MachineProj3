@@ -1,0 +1,76 @@
+<nav class = "navbar navbar-default navbar-fixed-top">
+   <div class = "container-fluid">
+      <div class = "navbar-header"> 
+			<%= link_to image_tag("logo.png", alt: "Toys and Crafts PH logo", size: "50x50"), root_path, id: "logo", class: "navbar-left" %>
+		</div>
+		<div id = "navbar" class = "navbar-right">
+			<ul class = "navbar navbar-nav" >
+				<li class = "dropdown" style = "list-style-type: none">
+					<!-- If not logged in -->
+					<% if !logged_in? %>
+					<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+						<p class = "navbar-text"> Login <b class = "caret"></b></p>
+					</a>
+					<ul class = "dropdown-menu">
+						<li style = "padding: 5px">
+							<%= form_for(:session, url: login_path, class: 'form-inline', id: 'loginform') do |f| %>
+								<div class = "form-group">
+									<label class = "sr-only" for = "username">Username</label>
+									<%= f.text_field :username, placeholder: 'Username' , class: 'form-control', id: 'inputUsername'%>
+								</div>
+								<div class = "form-group">
+									<label class = "sr-only" for = "password">Password</label>
+									<%= f.password_field :password, placeholder: 'Password', class: 'form-control', id: 'inputPassword'%>
+								</div>
+								<button type = "submit" class = "btn btn-primary btn-block">Log in</button>
+								<a href = "register">Register</a>
+							<% end %>
+						</li>
+					</ul>
+					<% end %>
+					<% if logged_in? %>
+					<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
+						<p class = "navbar-text"> Username <b class = "caret"></b></p>
+					</a>
+					<ul class = "dropdown-menu">
+						<li><%= link_to "Orders", "orders" %></li>
+						<li class = "divider"></li>
+						<li><%= link_to "Log out", "logout" %></li>
+					</ul> 
+					<% end %>
+				</li>
+			</ul>
+		</div>
+  </div>
+</nav>
+
+<div class = "container">
+	<%= form_for @user do |f|%>
+		<h2>Register</h2>
+		<div class = "form-group">
+			<label for="inputUsername" class="sr-only">Username</label>
+			<%= f.text_field :username, placeholder: 'Username' , class: 'form-control', id: 'inputUsername'%>
+		<div class = "form-group">
+			<label for="inputPassword" class="sr-only">Password</label>
+			<%= f.password_field :password, placeholder: 'Password', class: 'form-control', id: 'inputPassword'%>
+		</div>
+      <button class="btn btn-primary btn-block" type="submit">Register</button>
+		<a href = 'site'>Back</a>
+	<% end %>
+</div>
+
+<footer class="footer">
+	<div class="container">
+		<p class="text-muted pull-left">
+			Contact Us. <br>
+			<%= link_to image_tag("facebook2.png", alt: "facebook", size: "14x14"), "https://www.facebook.com/ToysandCraftsPH/" %> 
+				<a href = "https://www.facebook.com/ToysandCraftsPH/">Facebook </a> |
+			<%= link_to image_tag("instagram19.png", alt: "instagram", size: "14x14"), "https://www.facebook.com/ToysandCraftsPH/" %> 
+				<a href = "https://instagram.com/toysandcraftsph/">Instagram </a><br>
+			
+		</p>
+   </div>
+</footer>
+
+
+<!-- Icons from flaticon.com -->		
